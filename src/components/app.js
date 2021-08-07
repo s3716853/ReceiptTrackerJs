@@ -29,7 +29,7 @@ class App extends React.Component {
     
     //Slice as you need to make a new array for the DOM
     let newReceipts = this.state.receipts.slice(0);
-    let receiptLine = new ReceiptLine(formInfo.name, formInfo.cost, formInfo.selectedPeople, formInfo.includesSelf)
+    let receiptLine = new ReceiptLine(formInfo.name, formInfo.cost, formInfo.selectedPeople, formInfo.includeSelf)
     
     formInfo.selectedPeople.forEach((person) => {
       newReceipts[person.index].push(receiptLine);
