@@ -10,21 +10,19 @@ class ReceiptForm extends React.Component {
   
   constructor(props) {
     super(props)
+    
+    let peopleInfo = this.props.people.map((person) => {
+      return {
+        value: person.name,
+        default: false,
+        label: person.name
+      }
+    });
+    
     this.state = {
       name: "",
       cost: "",
-      people: [
-        {
-          value: "Emmett",
-          default: false,
-          label: "Emmett"
-        },
-        {
-          value: "Will",
-          default: false,
-          label: "Will"
-        }
-      ],
+      people: peopleInfo,
       selectedPeople: [false, false],
       includeSelf: true
     }
@@ -35,7 +33,7 @@ class ReceiptForm extends React.Component {
     
     this.state.selectedPeople.forEach((selected, index) => {
       if(selected){
-        selectedPeopleInfo.push(this.state.people[index])
+        selectedPeopleInfo.push(this.props.people[index])
       }
     });
     
