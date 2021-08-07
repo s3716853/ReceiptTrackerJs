@@ -49,6 +49,24 @@ function ReceiptSetViewer(props) {
     });
   }
   
+  const renderTotals = () => {
+    return props.people.map(person => {
+      
+      let total = 0;
+      
+      props.receipts[person.index].forEach((receiptLine) => {
+        total += parseFloat(receiptLine.exportObject().amountOwed);
+      });
+      
+      return (
+        <div>
+          <span>{person.name}</span>
+          {`$${total}`}
+        </div>
+      );
+    });
+  }
+  
   return (
     <div>
       <Nav 
@@ -58,8 +76,11 @@ function ReceiptSetViewer(props) {
         activeKey={activeTab}
       >
         {renderNavTabItems()}
-        {renderTabReceipts()}
       </Nav>
+      {renderTabReceipts()}
+      <div>
+        {renderTotals()}
+      </div>
     </div>
   );
   
