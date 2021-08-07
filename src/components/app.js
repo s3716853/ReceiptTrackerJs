@@ -56,7 +56,7 @@ class App extends React.Component {
       <div id='app'>
         <div id="logging">
         </div>
-        <div class="main-content">
+        <div className="main-content">
           <div>
             <ReceiptForm 
               people={this.state.people}
@@ -67,6 +67,7 @@ class App extends React.Component {
           <div>
             <ReceiptSetViewer 
               people={this.state.people}
+              receipts={this.state.receipts}
             />
           </div>
         </div>

@@ -11,12 +11,12 @@ class ReceiptLine {
         this.includesSelf = includesSelf;
     }
     
-    asObject = () => {
+    exportObject = () => {
         let cost = parseFloat(this.cost); 
         
-        let splitAmount = this.includesSelf ? this.numberSplit + 1 : this.numberSplit;
+        let splitAmount = this.includesSelf ? this.numberSplit.length + 1 : this.numberSplit.length;
         
-        let split = cost / splitAmount;
+        let split = parseFloat(cost) / splitAmount;
         
         return {
             name: this.name,
